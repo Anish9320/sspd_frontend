@@ -5,7 +5,12 @@ export default function Home() {
   const router = useRouter();
 
   const handleNavigate = (task) => {
-    router.push(`/Task${task}`);
+    if(task !== 3){
+      router.push(`/Task${task}`);
+    }
+    else{
+      router.push('https://docs.google.com/document/d/14AdEvay-253ph5SWVWWs1QF1mipE9f1F5LwwIFB6nNI/edit?usp=sharing')
+    }
   }
 
   return (

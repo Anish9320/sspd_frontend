@@ -19,16 +19,17 @@ const Task4 = () => {
     }
 
     setLoading(true);
-    setImages(null); // clear previous images
+    setImages(null);
     const reader = new FileReader();
     
     reader.onload = async () => {
       const base64String = reader.result.replace(/^data:image\/\w+;base64,/, "");
 
       try {
-        // Step 1: Upload image
+        //  Upload image
+        //please run in localhost server for output
         const uploadResponse = await axios.post(
-          "https://task-4-zeta-ruby.vercel.app/api/upload",
+          "http://localhost:5000/api/upload",
           { image: base64String },
           {
             headers: {
@@ -42,11 +43,11 @@ const Task4 = () => {
           console.log("Image uploaded successfully:", url);
           setProcessing(true); // Show processing message
 
-          // Step 2: Wait 5 seconds before fetching image versions
+          //wait 5 seconds before fetching image versions
           setTimeout(async () => {
             try {
               const imagesResponse = await axios.post(
-                "https://task-4-zeta-ruby.vercel.app/api/images",
+                "http://localhost:5000/api/images",
                 { imageUrl: url },
                 {
                   headers: {
@@ -67,7 +68,7 @@ const Task4 = () => {
               setProcessing(false);
               setLoading(false);
             }
-          }, 5000);
+          }, 10000);
         } else {
           console.error("Failed to upload image.");
           setLoading(false);
