@@ -86,7 +86,7 @@ const Task4 = () => {
     <main className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-xl mx-auto bg-white shadow-md rounded-xl p-6 space-y-4">
         <h2 className="text-2xl font-bold text-center text-gray-800">Image Uploader</h2>
-
+        <p>Please use Localhost for testing..</p>
         <div className="flex flex-col items-center sm:flex-row sm:justify-between gap-4">
           <input
             type="file"
